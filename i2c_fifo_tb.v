@@ -60,44 +60,44 @@ module I2C_FIFO_TB();
         @(negedge i2c_clk);
         rst = 0;
 
-        @(negedge scl);
+        @(negedge i2c_clk);
         addr_in = 7'h55;
         data_in = 8'h55;
         start   = 1;
 
-        @(negedge scl);
+        @(negedge i2c_clk);
         start = 0;
 
-        @(negedge scl);
+        @(negedge i2c_clk);
         addr_in = 7'h00;
         data_in = 8'hff;
         start   = 1;
         
-        @(negedge scl);
+        @(negedge i2c_clk);
         start = 0;
 
-        @(negedge scl);
+        @(negedge i2c_clk);
         addr_in = 7'hff;
         data_in = 8'h00;
         start   = 1;
 
-        @(negedge scl);
+        @(negedge i2c_clk);
         start = 0;
 
-        @(negedge scl);
+        @(negedge i2c_clk);
         addr_in = 7'hab;
         data_in = 8'hba;
         start   = 1;
 
-        @(negedge scl);
+        @(negedge i2c_clk);
         start = 0;
 
-        @(negedge scl);
+        @(negedge i2c_clk);
         addr_in = 7'hab;
         data_in = 8'hcd;
         start   = 1;
 
-        @(negedge scl);
+        @(negedge i2c_clk);
         start = 0;
 
         wait_i2c_cycles(99);

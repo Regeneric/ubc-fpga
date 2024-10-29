@@ -23,12 +23,12 @@ module FIFO #(
     assign NOT_EMPTY_OW = ~EMPTY_OW;
     assign NOT_FULL_OW  = ~FULL_OW;
 
+    integer i = 0;
     always @(posedge CLK_IW) begin
         if(RST_IW) begin
             write_ptr = 0;
             read_ptr  = 0;
 
-            integer i = 0;
             for (integer i = 0; i < DEPTH; i = i+1) begin
                 memory[i] <= {DATA_LEN{1'b0}};
             end
